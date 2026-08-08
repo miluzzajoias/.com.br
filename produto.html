@@ -2,194 +2,790 @@
 <html lang="pt-BR">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miluzza Joias | Produto</title>
+    <meta name="description" content="Conheça os detalhes desta peça Miluzza Joias.">
 
-<title>Produto | Miluzza Joias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="produto.css">
+    <style>
+        :root {
+            --wine: #4a0628;
+            --wine2: #650b36;
+            --deep: #2c0318;
+            --gold: #e9c778;
+            --gold2: #f5dda0;
+            --cream: #fbf8f3;
+            --ink: #241a1e;
+            --muted: #776b70;
+            --line: #e8e0dc;
+            --white: #fff;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        /* HEADER */
+
+        .header {
+            height: 82px;
+            padding: 0 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--line);
+            background: rgba(251, 248, 243, .96);
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand img {
+            width: 125px;
+            display: block;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: .25s ease;
+        }
+
+        .back-link span {
+            font-size: 18px;
+            transition: transform .25s ease;
+        }
+
+        .back-link:hover {
+            color: var(--wine);
+        }
+
+        .back-link:hover span {
+            transform: translateX(-4px);
+        }
+
+        .whatsapp-mini {
+            border: 1px solid var(--wine);
+            color: var(--wine);
+            padding: 11px 17px;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: .25s ease;
+        }
+
+        .whatsapp-mini:hover {
+            background: var(--wine);
+            color: white;
+        }
+
+        /* MAIN */
+
+        .product-page {
+            width: min(1180px, 90%);
+            margin: 0 auto;
+            padding: 55px 0 90px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 35px;
+            color: var(--muted);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .breadcrumb strong {
+            color: var(--wine);
+            font-weight: 600;
+        }
+
+        .product-view {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr);
+            gap: clamp(45px, 7vw, 100px);
+            align-items: center;
+        }
+
+        /* IMAGE */
+
+        .product-image-wrap {
+            position: relative;
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1 / 1.08;
+            overflow: hidden;
+            background: #f1ece7;
+        }
+
+        .product-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(74, 6, 40, .08);
+            pointer-events: none;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: transform .7s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .product-image:hover img {
+            transform: scale(1.025);
+        }
+
+        .image-number {
+            position: absolute;
+            bottom: 18px;
+            left: 18px;
+            z-index: 2;
+            background: rgba(251, 248, 243, .9);
+            padding: 8px 12px;
+            color: var(--wine);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+        }
+
+        .badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 2;
+            background: var(--wine);
+            color: white;
+            padding: 9px 13px;
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* INFO */
+
+        .product-info {
+            padding: 10px 0;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 17px;
+        }
+
+        .product-category {
+            color: var(--wine);
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 13px;
+        }
+
+        .product-name {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(48px, 6vw, 76px);
+            font-weight: 500;
+            line-height: .88;
+            color: var(--ink);
+            margin-bottom: 25px;
+        }
+
+        .product-name em {
+            color: var(--wine);
+            font-style: italic;
+        }
+
+        .gold-line {
+            width: 45px;
+            height: 1px;
+            background: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .product-price {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 38px;
+            font-weight: 600;
+            color: var(--wine);
+            margin-bottom: 25px;
+        }
+
+        .product-description {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+            max-width: 470px;
+            margin-bottom: 32px;
+        }
+
+        .product-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 28px;
+        }
+
+        .meta-item {
+            padding: 17px 0;
+        }
+
+        .meta-item + .meta-item {
+            border-left: 1px solid var(--line);
+            padding-left: 20px;
+        }
+
+        .meta-item span {
+            display: block;
+            color: var(--muted);
+            font-size: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .meta-item strong {
+            color: var(--ink);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .btn-whatsapp {
+            width: 100%;
+            border: 0;
+            background: var(--wine);
+            color: white;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 9px;
+            font-weight: 600;
+            transition: .25s ease;
+        }
+
+        .btn-whatsapp span {
+            font-size: 20px;
+            font-weight: 300;
+            transition: transform .25s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background: var(--wine2);
+        }
+
+        .btn-whatsapp:hover span {
+            transform: translateX(5px);
+        }
+
+        .secure-note {
+            text-align: center;
+            color: #9b9094;
+            font-size: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 13px;
+        }
+
+        /* LOADING / ERROR */
+
+        .state {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .state-inner {
+            max-width: 400px;
+        }
+
+        .state-inner h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 55px;
+            font-weight: 500;
+            color: var(--wine);
+            margin-bottom: 15px;
+        }
+
+        .state-inner p {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .state-inner a {
+            display: inline-block;
+            background: var(--wine);
+            color: white;
+            padding: 14px 22px;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* FOOTER */
+
+        .product-footer {
+            border-top: 1px solid var(--line);
+            padding: 28px 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--muted);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-footer strong {
+            color: var(--wine);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .header {
+                height: 72px;
+                padding: 0 22px;
+            }
+
+            .brand img {
+                width: 105px;
+            }
+
+            .back-link {
+                font-size: 8px;
+            }
+
+            .whatsapp-mini {
+                display: none;
+            }
+
+            .product-page {
+                width: 100%;
+                padding: 25px 20px 60px;
+            }
+
+            .breadcrumb {
+                margin-bottom: 22px;
+            }
+
+            .product-view {
+                display: block;
+            }
+
+            .product-image {
+                aspect-ratio: 1 / 1.05;
+            }
+
+            .product-info {
+                padding: 38px 4px 0;
+            }
+
+            .product-name {
+                font-size: clamp(50px, 15vw, 70px);
+                margin-bottom: 22px;
+            }
+
+            .product-price {
+                font-size: 34px;
+            }
+
+            .product-description {
+                font-size: 12px;
+                line-height: 1.8;
+            }
+
+            .product-meta {
+                margin-bottom: 25px;
+            }
+
+            .product-footer {
+                padding: 25px 20px;
+                display: block;
+                text-align: center;
+            }
+
+            .product-footer strong {
+                display: block;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <header class="header">
 
-<header class="header">
+        <a href="index.html" class="back-link">
+            <span>←</span>
+            Voltar à coleção
+        </a>
 
-<a href="index.html" class="brand">
-    <img src="assets/images/logo.png" alt="Miluzza Joias">
-</a>
+        <a href="index.html" class="brand">
+            <img src="assets/images/logo-transparent.png" alt="Miluzza Joias">
+        </a>
 
-<a href="index.html" class="whatsapp-mini">
-    ← Voltar
-</a>
+        <a
+            class="whatsapp-mini"
+            href="https://wa.me/5563985003751"
+            target="_blank"
+            rel="noopener"
+        >
+            WhatsApp
+        </a>
 
-</header>
+    </header>
 
+    <main id="app">
 
+        <div class="state">
+            <div class="state-inner">
+                <h1>Carregando...</h1>
+                <p>Estamos preparando os detalhes desta peça.</p>
+            </div>
+        </div>
 
-<main class="products-section">
+    </main>
 
+    <footer class="product-footer">
+        <strong>Miluzza Joias</strong>
+        <span>Elegância em cada detalhe</span>
+    </footer>
 
-<div id="productDetail"></div>
 
+    <script type="module">
 
-</main>
+        import { initializeApp }
+            from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
+        import {
+            getFirestore,
+            doc,
+            getDoc
+        }
+            from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-<script type="module">
+        /* FIREBASE */
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyAEkLNlY7GFj3Pix_V_Jzltmb6GSMf8U",
+            authDomain: "miluzza-joias-ca518.firebaseapp.com",
+            projectId: "miluzza-joias-ca518",
+            storageBucket: "miluzza-joias-ca518.firebasestorage.app",
+            messagingSenderId: "695140285519",
+            appId: "1:695140285519:web:718d322ccb9883580b7e3a"
+        };
 
-import { initializeApp } 
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
 
-import { 
-getFirestore,
-doc,
-getDoc
-} 
-from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+        /* ELEMENTO PRINCIPAL */
 
+        const appEl = document.getElementById("app");
 
 
-const firebaseConfig = {
+        /* ID DO PRODUTO */
 
-apiKey: "AIzaSyAwgumX1YaWrz31PQwneSAXsoxYXtmKr00",
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
 
-authDomain: "miluzza-joias-ca518.firebaseapp.com",
 
-projectId: "miluzza-joias-ca518",
+        /* FORMATA PREÇO */
 
-storageBucket: "miluzza-joias-ca518.firebasestorage.app",
+        function formatPrice(value) {
 
-messagingSenderId: "695140285519",
+            if (typeof value === "number") {
 
-appId: "1:695140285519:web:718d322ccb9883580b7e3a"
+                return value.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL"
+                });
 
-};
+            }
 
+            return value || "Consultar";
+        }
 
 
-const app = initializeApp(firebaseConfig);
+        /* ESCAPE HTML */
 
-const db = getFirestore(app);
+        function escapeHTML(value) {
 
+            return String(value || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
 
 
-const id = new URLSearchParams(window.location.search).get("id");
+        /* CARREGAR PRODUTO */
 
+        async function loadProduct() {
 
-const container = document.getElementById("productDetail");
+            if (!productId) {
+                showError();
+                return;
+            }
 
+            try {
 
+                const ref = doc(db, "produtos", productId);
+                const snapshot = await getDoc(ref);
 
-async function carregarProduto(){
+                if (!snapshot.exists()) {
+                    showError();
+                    return;
+                }
 
+                const product = {
+                    id: snapshot.id,
+                    ...snapshot.data()
+                };
 
-if(!id){
+                if (product.ativo === false) {
+                    showError();
+                    return;
+                }
 
-container.innerHTML = "Produto não encontrado.";
+                renderProduct(product);
 
-return;
+            } catch (error) {
 
-}
+                console.error("Erro ao carregar produto:", error);
 
+                showError();
 
+            }
 
-const referencia = doc(db,"produtos",id);
+        }
 
 
-const resultado = await getDoc(referencia);
+        /* MOSTRAR PRODUTO */
 
+        function renderProduct(product) {
 
+            const name = escapeHTML(product.nome);
+            const category = escapeHTML(product.categoria);
+            const description = escapeHTML(product.descricao);
+            const image = escapeHTML(product.imagem);
 
-if(!resultado.exists()){
+            const price = formatPrice(product.preco);
 
-container.innerHTML = "Produto não encontrado.";
+            const whatsappText =
+                `Olá Miluzza! Tenho interesse na peça "${product.nome}".`;
 
-return;
+            const whatsappURL =
+                `https://wa.me/5563985003751?text=${encodeURIComponent(whatsappText)}`;
 
-}
 
+            document.title =
+                `${product.nome} | Miluzza Joias`;
 
 
-const produto = resultado.data();
+            appEl.innerHTML = `
 
+                <div class="product-page">
 
+                    <div class="breadcrumb">
+                        <a href="index.html">Início</a>
+                        <span>›</span>
+                        <a href="index.html#destaques">Coleção</a>
+                        <span>›</span>
+                        <strong>${category}</strong>
+                    </div>
 
-container.innerHTML = `
 
+                    <section class="product-view">
 
-<div class="product-view">
 
+                        <div class="product-image-wrap">
 
-<div class="product-image">
+                            <div class="product-image">
 
-<img 
-src="${produto.imagem}" 
-alt="${produto.nome}">
+                                ${product.novo
+                                    ? `<div class="badge">Novo</div>`
+                                    : ""
+                                }
 
-</div>
+                                <img
+                                    src="${image}"
+                                    alt="${name}"
+                                    loading="eager"
+                                >
 
+                                <div class="image-number">
+                                    MILUZZA · 01
+                                </div>
 
+                            </div>
 
-<div class="product-info">
+                        </div>
 
 
-<p class="product-category">
-${produto.categoria || ""}
-</p>
+                        <div class="product-info">
 
+                            <p class="eyebrow">
+                                SELEÇÃO MILUZZA
+                            </p>
 
-<h1 class="product-name">
-${produto.nome}
-</h1>
+                            <p class="product-category">
+                                ${category}
+                            </p>
 
+                            <h1 class="product-name">
+                                ${name}
+                            </h1>
 
-<div class="product-price">
-${produto.preco}
-</div>
+                            <div class="gold-line"></div>
 
+                            <div class="product-price">
+                                ${price}
+                            </div>
 
-<p class="product-description">
-${produto.descricao || "Peça exclusiva Miluzza Joias."}
-</p>
+                            ${description
+                                ? `
+                                <p class="product-description">
+                                    ${description}
+                                </p>
+                                `
+                                : ""
+                            }
 
 
-<a 
-class="btn btn-gold"
-href="https://wa.me/5563985003751"
-target="_blank">
+                            <div class="product-meta">
 
-Tenho interesse
+                                <div class="meta-item">
+                                    <span>Categoria</span>
+                                    <strong>${category || "Miluzza"}</strong>
+                                </div>
 
-</a>
+                                <div class="meta-item">
+                                    <span>Atendimento</span>
+                                    <strong>WhatsApp</strong>
+                                </div>
 
+                            </div>
 
-</div>
 
+                            <a
+                                class="btn-whatsapp"
+                                href="${whatsappURL}"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <span>Comprar pelo WhatsApp</span>
+                                <span>→</span>
+                            </a>
 
-</div>
+                            <p class="secure-note">
+                                Atendimento personalizado Miluzza
+                            </p>
 
+                        </div>
 
-`;
+                    </section>
 
-}
+                </div>
 
+            `;
 
+        }
 
-carregarProduto();
 
+        /* ERRO */
 
-</script>
+        function showError() {
 
+            appEl.innerHTML = `
 
+                <div class="state">
+
+                    <div class="state-inner">
+
+                        <h1>Peça não encontrada</h1>
+
+                        <p>
+                            Essa peça pode não estar mais disponível
+                            ou o endereço acessado está incorreto.
+                        </p>
+
+                        <a href="index.html#destaques">
+                            Voltar para a coleção
+                        </a>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+        loadProduct();
+
+    </script>
 
 </body>
 
