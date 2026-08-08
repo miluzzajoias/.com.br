@@ -1,52 +1,100 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
 
+```
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login Admin | Miluzza Joias</title>
+<title>Miluzza · Acesso administrativo</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
 
 <link rel="stylesheet" href="admin.css">
+```
 
 </head>
 
-<body>
+<body class="login-page">
 
-<div class="login-box">
+```
+<main class="login-shell">
 
-    <h1>Miluzza</h1>
+    <div class="login-brand">
+        <img
+            src="../assets/images/logo-transparent.png"
+            alt="Miluzza Joias">
+    </div>
 
-    <p>Acesso administrativo</p>
+    <section class="login-card">
 
-    <form id="loginForm">
+        <p class="eyebrow dark">ÁREA RESTRITA</p>
 
-        <input 
-        type="email" 
-        id="email" 
-        placeholder="Email"
-        required>
+        <h1>
+            Bem-vinda à<br>
+            <em>Miluzza.</em>
+        </h1>
 
-        <input 
-        type="password" 
-        id="password" 
-        placeholder="Senha"
-        required>
+        <p class="login-copy">
+            Acesse o painel administrativo para gerenciar
+            os produtos da sua loja.
+        </p>
 
-        <button type="submit">
-            Entrar
-        </button>
+        <form id="loginForm">
 
-        <span id="message"></span>
+            <label>
+                E-mail
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="seu@email.com"
+                    autocomplete="email"
+                    required>
+            </label>
 
-    </form>
+            <label>
+                Senha
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Digite sua senha"
+                    autocomplete="current-password"
+                    required>
+            </label>
 
-</div>
+            <button
+                type="submit"
+                class="admin-btn">
+                Entrar
+                <span>→</span>
+            </button>
 
+            <p
+                id="message"
+                class="form-message">
+            </p>
+
+        </form>
+
+    </section>
+
+    <a
+        href="../index.html"
+        class="back-store">
+        ← Voltar para a loja
+    </a>
+
+</main>
 
 <script type="module" src="admin.js"></script>
-
+```
 
 </body>
 
