@@ -32,6 +32,506 @@ button{font:inherit}
 .search-overlay{position:fixed;inset:0;background:rgba(32,1,18,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:25px}.search-overlay.open{display:flex}.close-search{position:absolute;right:30px;top:25px;border:0;background:none;color:white;font-size:38px;cursor:pointer}.search-box{width:min(700px,100%);color:white}.search-box input{width:100%;border:0;border-bottom:1px solid rgba(255,255,255,.3);background:none;color:white;font:400 32px "Cormorant Garamond";padding:15px 0;outline:0}.search-box input::placeholder{color:#9f8b94}.search-result{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between}.search-result span{font-family:"Cormorant Garamond";font-size:22px}.search-result small{color:#d7c7ce}
 
 @media(max-width:900px){.nav{gap:17px}.hero-card{right:5%;opacity:.55}.category-grid{grid-template-columns:1fr 1fr}.category-main{grid-column:span 2}.products-grid{grid-template-columns:repeat(2,1fr)}.product-image{height:300px}.about{grid-template-columns:1fr}.about-image{min-height:400px}.footer{grid-template-columns:1fr}.footer-links{max-width:600px}}
-@media(max-width:700px){.topbar{font-size:8px}.header{height:72px}.brand img{width:105px;height:54px}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:var(--cream);padding:22px;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}.nav.open{display:flex}.menu-btn{display:block}.whatsapp-mini,.icon-btn{display:none}.hero{min-height:650px;padding:70px 25px;align-items:flex-end}.hero h1{font-size:68px;letter-spacing:-2px}.hero-text{font-size:13px}.hero-card{width:180px;height:240px;right:-20px;top:28%;opacity:.3}.hero-scroll{display:none}.categories,.products-section{padding:75px 20px}.section-heading{display:block;margin-bottom:30px}.heading-copy{margin-top:20px}.category-grid{grid-template-columns:1fr 1fr;gap:7px}.category-card{min-height:190px;padding:18px}.category-main{grid-column:span 2;min-height:210px}.category-card strong{left:18px;bottom:45px;font-size:29px}.category-card small{left:18px;bottom:20px;font-size:7px}.category-card i{right:16px;bottom:16px}.products-heading .filter-wrap{justify-content:flex-start;margin-top:22px;overflow:auto;flex-wrap:nowrap;padding-bottom:5px}.filter{white-space:nowrap}.products-grid{gap:22px 10px}.product-image{height:235px}.product-name{font-size:19px}.manifesto{padding:100px 25px}.about-image{min-height:330px}.about-image:before{width:270px;height:270px}.about-image:after{width:210px;height:210px}.about-monogram{font-size:90px}.about-content{padding:70px 25px}.cta{display:block;padding:70px 25px}.cta .btn{margin-top:30px}.footer{padding:55px 25px 20px}.footer-links{grid-template-columns:1fr 1fr}.footer-bottom{display:block}.footer-bottom span{display:block;margin-bottom:8px}}
 
+@media(max-width:700px){
+
+    /* ==============================
+       MOBILE — MILUZZA JOIAS
+       ============================== */
+
+    body{
+        width:100%;
+        overflow-x:hidden;
+    }
+
+    /* TOPBAR */
+    .topbar{
+        height:30px;
+        padding:8px 10px;
+        font-size:7px;
+        letter-spacing:1.6px;
+        white-space:nowrap;
+        overflow:hidden;
+    }
+
+    /* HEADER */
+    .header{
+        height:68px;
+        padding:0 18px;
+        background:rgba(251,248,243,.98);
+    }
+
+    .brand img{
+        width:100px;
+        height:52px;
+        object-fit:cover;
+    }
+
+    .header-actions{
+        gap:14px;
+    }
+
+    .whatsapp-mini,
+    .icon-btn{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+        width:28px;
+        height:28px;
+        padding:2px 0;
+    }
+
+    .menu-btn span{
+        width:25px;
+        height:1px;
+        margin:7px 0;
+    }
+
+    /* MENU MOBILE */
+    .nav{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+        padding:28px 22px 32px;
+        background:rgba(251,248,243,.99);
+        border-bottom:1px solid var(--line);
+        box-shadow:0 15px 35px rgba(45,4,25,.08);
+        gap:0;
+        flex-direction:column;
+    }
+
+    .nav.open{
+        display:flex;
+    }
+
+    .nav a{
+        padding:15px 0;
+        border-bottom:1px solid var(--line);
+        font-size:10px;
+        letter-spacing:1.8px;
+    }
+
+    .nav a:last-child{
+        border-bottom:0;
+    }
+
+    .nav a:after{
+        display:none;
+    }
+
+    /* HERO */
+    .hero{
+        min-height:650px;
+        padding:65px 24px 58px;
+        align-items:flex-end;
+        background:
+            radial-gradient(
+                circle at 85% 20%,
+                #86184c 0,
+                #5d0a32 28%,
+                #3b0522 65%,
+                #250114 100%
+            );
+    }
+
+    .hero:before{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(25,0,13,.05),
+                rgba(25,0,13,.35)
+            );
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:none;
+    }
+
+    .eyebrow{
+        font-size:8px;
+        letter-spacing:3px;
+        margin-bottom:16px;
+    }
+
+    .hero h1{
+        max-width:330px;
+        font-size:68px;
+        line-height:.82;
+        letter-spacing:-2.5px;
+        margin-bottom:25px;
+    }
+
+    .hero-text{
+        max-width:310px;
+        font-size:12px;
+        line-height:1.75;
+        margin-bottom:28px;
+    }
+
+    .hero-buttons{
+        width:100%;
+        display:flex;
+        flex-direction:column;
+        gap:9px;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+        min-height:48px;
+    }
+
+    .btn{
+        padding:15px 18px;
+        font-size:9px;
+        letter-spacing:1.4px;
+    }
+
+    .hero-card{
+        width:170px;
+        height:225px;
+        right:-48px;
+        top:19%;
+        transform:rotate(8deg);
+        opacity:.20;
+    }
+
+    .hero-card-inner{
+        inset:14px;
+    }
+
+    .hero-card strong{
+        font-size:40px;
+    }
+
+    .hero-scroll{
+        display:none;
+    }
+
+    .hero-glow{
+        width:360px;
+        height:360px;
+        right:-170px;
+        top:10%;
+    }
+
+    /* SEÇÕES */
+    .categories,
+    .products-section{
+        padding:68px 18px;
+    }
+
+    .section-heading{
+        display:block;
+        margin-bottom:28px;
+    }
+
+    .section-heading h2{
+        font-size:48px;
+        line-height:.9;
+        letter-spacing:-1px;
+    }
+
+    .heading-copy{
+        max-width:290px;
+        margin-top:17px;
+        font-size:11px;
+        line-height:1.7;
+    }
+
+    /* CATEGORIAS */
+    .category-grid{
+        grid-template-columns:1fr 1fr;
+        gap:7px;
+    }
+
+    .category-card{
+        min-height:175px;
+        padding:17px;
+        border-radius:2px;
+    }
+
+    .category-main{
+        grid-column:span 2;
+        min-height:205px;
+    }
+
+    .category-card span{
+        font-size:8px;
+    }
+
+    .category-card strong{
+        left:17px;
+        bottom:42px;
+        font-size:30px;
+    }
+
+    .category-card small{
+        left:17px;
+        bottom:18px;
+        font-size:7px;
+        letter-spacing:.8px;
+    }
+
+    .category-card i{
+        right:15px;
+        bottom:14px;
+        font-size:19px;
+    }
+
+    /* PRODUTOS */
+    .products-section{
+        padding-top:68px;
+    }
+
+    .products-heading .filter-wrap{
+        margin-top:24px;
+        width:100%;
+        justify-content:flex-start;
+        overflow-x:auto;
+        flex-wrap:nowrap;
+        gap:5px;
+        padding-bottom:8px;
+        scrollbar-width:none;
+    }
+
+    .products-heading .filter-wrap::-webkit-scrollbar{
+        display:none;
+    }
+
+    .filter{
+        flex:none;
+        padding:9px 13px;
+        font-size:8px;
+        letter-spacing:1.2px;
+        border:1px solid var(--line);
+    }
+
+    .filter.active{
+        border-color:var(--wine);
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:28px 9px;
+    }
+
+    .product-card{
+        min-width:0;
+    }
+
+    .product-image{
+        height:220px;
+        border-radius:2px;
+    }
+
+    .heart{
+        width:31px;
+        height:31px;
+        top:9px;
+        right:9px;
+        font-size:15px;
+    }
+
+    .product-badge{
+        top:9px;
+        left:9px;
+        padding:5px 6px;
+        font-size:7px;
+    }
+
+    .product-info{
+        padding:12px 1px 5px;
+    }
+
+    .product-category{
+        font-size:7px;
+        letter-spacing:1.5px;
+    }
+
+    .product-name{
+        font-size:19px;
+        line-height:1;
+        margin:5px 0 7px;
+    }
+
+    .product-price{
+        font-size:10px;
+    }
+
+    /* MANIFESTO */
+    .manifesto{
+        padding:95px 24px;
+    }
+
+    .manifesto-line{
+        height:42px;
+        margin-bottom:26px;
+    }
+
+    .manifesto h2{
+        font-size:45px;
+        line-height:.94;
+        margin-bottom:26px;
+    }
+
+    .manifesto p:last-child{
+        font-size:11px;
+        line-height:1.8;
+    }
+
+    .manifesto:before,
+    .manifesto:after{
+        width:280px;
+        height:280px;
+    }
+
+    .manifesto:before{
+        left:-220px;
+    }
+
+    .manifesto:after{
+        right:-220px;
+    }
+
+    /* SOBRE */
+    .about{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .about-image{
+        min-height:340px;
+    }
+
+    .about-image:before{
+        width:270px;
+        height:270px;
+    }
+
+    .about-image:after{
+        width:205px;
+        height:205px;
+    }
+
+    .about-monogram{
+        font-size:90px;
+    }
+
+    .about-content{
+        padding:68px 24px 75px;
+    }
+
+    .about h2{
+        font-size:48px;
+        line-height:.9;
+        margin-bottom:25px;
+    }
+
+    .about-content p:not(.eyebrow){
+        font-size:11px;
+        line-height:1.85;
+        margin-bottom:13px;
+    }
+
+    .text-link{
+        margin-top:16px;
+        font-size:9px;
+        letter-spacing:1.7px;
+    }
+
+    /* CTA */
+    .cta{
+        display:block;
+        padding:68px 24px 72px;
+    }
+
+    .cta h2{
+        font-size:49px;
+        line-height:.9;
+    }
+
+    .cta .btn{
+        width:100%;
+        margin-top:30px;
+        min-height:50px;
+    }
+
+    /* FOOTER */
+    .footer{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:42px;
+        padding:55px 24px 22px;
+    }
+
+    .footer-brand img{
+        width:145px;
+        height:65px;
+    }
+
+    .footer-brand p{
+        font-size:18px;
+        max-width:260px;
+    }
+
+    .footer-links{
+        grid-template-columns:1fr 1fr;
+        gap:32px 20px;
+    }
+
+    .footer-links div{
+        gap:11px;
+    }
+
+    .footer-links strong{
+        font-size:8px;
+        letter-spacing:1.7px;
+    }
+
+    .footer-links a{
+        font-size:10px;
+    }
+
+    .footer-bottom{
+        display:block;
+        padding-top:18px;
+        font-size:8px;
+        line-height:1.7;
+    }
+
+    .footer-bottom span{
+        display:block;
+        margin-bottom:7px;
+    }
+
+    /* WHATSAPP */
+    .floating-whatsapp{
+        width:50px;
+        height:50px;
+        right:16px;
+        bottom:16px;
+        font-size:25px;
+    }
+
+    /* BUSCA */
+    .search-overlay{
+        padding:20px;
+    }
+
+    .close-search{
+        right:20px;
+        top:18px;
+        font-size:32px;
+    }
+
+    .search-box input{
+        font-size:27px;
+    }
+
+}
 
