@@ -1,0 +1,209 @@
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--wine:#4a0628;--wine2:#650b36;--deep:#210112;--gold:#e9c778;--cream:#fbf8f3;--ink:#251b20;--muted:#786c71;--line:#e8e0dc}
+body{font-family:"DM Sans",sans-serif;color:var(--ink);background:var(--cream)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
+.eyebrow{font-size:9px;letter-spacing:3px;color:var(--gold);font-weight:600;margin-bottom:14px}.eyebrow.dark{color:var(--wine)}
+.login-page{min-height:100vh;background:radial-gradient(circle at 50% 35%,#680d3b,#35031e 65%,#210112);display:flex;align-items:center;justify-content:center;padding:25px;color:white}
+.login-shell{width:min(450px,100%);text-align:center}.login-brand{margin-bottom:22px}.login-brand img{width:170px;height:78px;object-fit:cover}.login-card{background:rgba(255,255,255,.97);color:var(--ink);padding:42px 38px;text-align:left;box-shadow:0 30px 100px rgba(0,0,0,.3)}.login-card h1{font:500 52px/0.85 "Cormorant Garamond";margin-bottom:20px}.login-card h1 em{font-style:italic;color:var(--wine)}.login-copy{font-size:12px;color:var(--muted);margin-bottom:30px}label{display:flex;flex-direction:column;gap:8px;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:18px}input,select,textarea{border:1px solid var(--line);background:white;padding:13px 14px;outline:none;color:var(--ink);font-size:13px;text-transform:none;letter-spacing:0}input:focus,select:focus,textarea:focus{border-color:var(--wine)}textarea{resize:vertical}.admin-btn{border:0;background:var(--wine);color:white;padding:14px 20px;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;display:inline-flex;align-items:center;gap:24px}.admin-btn:hover{background:var(--wine2)}.admin-btn span{font-size:17px}.login-card .admin-btn{width:100%;justify-content:center;margin-top:5px}.form-message{font-size:11px;color:var(--wine);margin-top:12px;min-height:15px}.back-store{display:block;color:#c9b7c0;font-size:10px;text-transform:uppercase;letter-spacing:1px;margin-top:20px}
+.admin-page{min-height:100vh;display:flex}.sidebar{width:225px;background:var(--deep);color:white;min-height:100vh;position:fixed;left:0;top:0;padding:35px 25px;display:flex;flex-direction:column}.side-logo{border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:28px}.side-logo img{width:130px;height:60px;object-fit:cover}.sidebar nav{display:flex;flex-direction:column;gap:5px;margin-top:35px}.sidebar nav a{padding:13px 10px;color:#bfaeb5;font-size:11px;text-transform:uppercase;letter-spacing:1px}.sidebar nav a.active,.sidebar nav a:hover{color:white;background:rgba(255,255,255,.07)}.logout{margin-top:auto;border:1px solid rgba(255,255,255,.15);background:none;color:#bfaeb5;padding:11px;text-transform:uppercase;letter-spacing:1px;font-size:9px}.logout:hover{color:white;border-color:rgba(255,255,255,.4)}
+.admin-main{margin-left:225px;width:calc(100% - 225px);padding:60px clamp(25px,5vw,75px)}.admin-header{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:42px}.admin-header h1{font:500 clamp(45px,5vw,65px)/.85 "Cormorant Garamond"}.admin-header h1 em{font-style:italic;color:var(--wine)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:40px}.stats div{background:white;border:1px solid var(--line);padding:22px}.stats span{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}.stats strong{font:500 38px "Cormorant Garamond";color:var(--wine)}
+.products-panel{background:white;border:1px solid var(--line)}.panel-top{padding:25px;border-bottom:1px solid var(--line);display:flex;align-items:end;justify-content:space-between;gap:20px}.panel-top h2{font:500 34px "Cormorant Garamond"}.panel-top p{font-size:11px;color:var(--muted);margin-top:4px}.panel-top input{width:240px}.admin-product-list{padding:0 20px}.admin-product-row{display:grid;grid-template-columns:60px 1fr 130px 80px 160px;gap:18px;align-items:center;padding:15px 5px;border-bottom:1px solid var(--line)}.admin-product-row:last-child{border-bottom:0}.admin-thumb{width:58px;height:58px;background:#eee;overflow:hidden}.admin-thumb img{width:100%;height:100%;object-fit:cover}.admin-product-name strong{display:block;font:500 22px "Cormorant Garamond"}.admin-product-name span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:3px}.admin-price{font-size:11px;color:var(--wine);font-weight:600}.status{font-size:9px;text-transform:uppercase;letter-spacing:1px}.status.on{color:#367a55}.status.off{color:#a15d5d}.row-actions{display:flex;gap:6px;justify-content:flex-end}.row-actions button,.secondary-btn{border:1px solid var(--line);background:white;padding:9px 10px;font-size:9px;text-transform:uppercase;letter-spacing:.7px}.row-actions button:hover,.secondary-btn:hover{border-color:var(--wine);color:var(--wine)}.row-actions .danger:hover{color:#9a3333;border-color:#9a3333}.empty-state{padding:70px 20px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:8px;font-size:12px}.empty-state strong{font:500 27px "Cormorant Garamond";color:var(--ink)}
+.modal{position:fixed;inset:0;background:rgba(33,1,18,.75);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;overflow:auto}.modal.open{display:flex}.modal-card{width:min(760px,100%);background:var(--cream);padding:38px;position:relative;max-height:95vh;overflow:auto}.modal-card h2{font:500 43px "Cormorant Garamond";margin-bottom:25px}.modal-card h2 em{font-style:italic;color:var(--wine)}.modal-close{position:absolute;right:20px;top:15px;border:0;background:none;font-size:30px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}.form-grid label{min-width:0}.cloudinary-box{border:1px dashed #cdbec3;background:#f8f3f0;padding:16px;margin-bottom:18px;display:flex;align-items:center;gap:18px}.cloudinary-box>div{flex:1}.cloudinary-box strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px}.cloudinary-box small{display:block;color:var(--muted);font-size:9px;line-height:1.5;margin-top:5px}.cloudinary-box p{font-size:9px;color:var(--wine)}.check-grid{display:flex;gap:20px;flex-wrap:wrap}.check{flex-direction:row;align-items:center;text-transform:none;letter-spacing:0;font-size:10px}.check input{width:15px;height:15px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.modal-actions .admin-btn{min-width:160px;justify-content:center}
+
+@media(max-width:850px){.sidebar{width:72px;padding:20px 10px}.side-logo img{width:52px;height:48px}.sidebar nav a{font-size:0;text-align:center}.sidebar nav a:before{content:"•";font-size:20px}.sidebar nav a.active:before{color:var(--gold)}.logout{font-size:0}.logout:before{content:"↪";font-size:17px}.admin-main{margin-left:72px;width:calc(100% - 72px);padding:35px 20px}.admin-product-row{grid-template-columns:55px 1fr 90px}.admin-product-row .status,.admin-product-row .row-actions{grid-column:auto}.panel-top{display:block}.panel-top input{margin-top:15px;width:100%}}
+@media(max-width:600px){.admin-header{display:block}.admin-header .admin-btn{margin-top:20px}.stats{grid-template-columns:1fr}.admin-product-row{grid-template-columns:50px 1fr;gap:10px}.admin-price{grid-column:2}.status{grid-column:2}.row-actions{grid-column:2;justify-content:flex-start}.form-grid{grid-template-columns:1fr}.modal-card{padding:28px 20px}.cloudinary-box{display:block}.cloudinary-box .secondary-btn{margin-top:12px}.login-card{padding:32px 25px}}
+
+
+/* ===============================
+   MILUZZA ADMIN LUXURY FINISH
+================================ */
+
+body.admin-page{
+    background:
+    radial-gradient(circle at top right, rgba(233,199,120,.08), transparent 30%),
+    var(--cream);
+}
+
+
+/* SIDEBAR PREMIUM */
+
+.sidebar{
+    background:
+    linear-gradient(180deg,#210112,#3b0522);
+    box-shadow:20px 0 60px rgba(0,0,0,.12);
+}
+
+.side-logo{
+    text-align:center;
+}
+
+.sidebar nav a{
+    border-radius:8px;
+    transition:.3s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover{
+    background:linear-gradient(
+        90deg,
+        rgba(233,199,120,.18),
+        transparent
+    );
+    color:white;
+}
+
+
+/* HEADER */
+
+.admin-header{
+    position:relative;
+}
+
+.admin-header h1{
+    letter-spacing:-1px;
+}
+
+.admin-header h1 em{
+    color:#8b174c;
+}
+
+
+/* ESTATÍSTICAS */
+
+.stats div{
+    border-radius:14px;
+    transition:.3s;
+    box-shadow:0 15px 40px rgba(74,6,40,.06);
+}
+
+.stats div:hover{
+    transform:translateY(-5px);
+    box-shadow:0 25px 60px rgba(74,6,40,.12);
+}
+
+.stats strong{
+    font-size:42px;
+}
+
+
+/* PAINEL PRODUTOS */
+
+.products-panel{
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:
+    0 20px 70px rgba(74,6,40,.08);
+}
+
+
+.panel-top{
+    background:white;
+}
+
+
+.panel-top h2{
+    letter-spacing:-.5px;
+}
+
+
+/* LINHAS DE PRODUTO */
+
+.admin-product-row{
+    transition:.25s;
+}
+
+.admin-product-row:hover{
+    background:#fcf8f4;
+}
+
+
+.admin-thumb{
+    border-radius:12px;
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+
+/* BOTÕES */
+
+.admin-btn{
+    border-radius:30px;
+    background:
+    linear-gradient(
+    135deg,
+    #650b36,
+    #4a0628
+    );
+    box-shadow:
+    0 12px 25px rgba(74,6,40,.2);
+}
+
+.admin-btn:hover{
+    transform:translateY(-2px);
+}
+
+
+/* MODAL */
+
+.modal-card{
+    border-radius:22px;
+    box-shadow:
+    0 40px 100px rgba(0,0,0,.35);
+}
+
+
+.modal-close{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+.modal-close:hover{
+    background:#eee4df;
+}
+
+
+/* INPUTS */
+
+input,
+select,
+textarea{
+    border-radius:10px;
+    transition:.25s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    box-shadow:
+    0 0 0 3px rgba(233,199,120,.25);
+}
+
+
+/* CLOUDINARY */
+
+.cloudinary-box{
+    border-radius:14px;
+    background:#fffaf5;
+}
+
+
+/* LOGIN */
+
+.login-card{
+    border-radius:24px;
+}
+
+.login-card .admin-btn{
+    border-radius:30px;
+}
+
+.login-shell:before{
+    content:"";
+    position:absolute;
+}
+
+body{
+    outline:10px solid red !important;
+}

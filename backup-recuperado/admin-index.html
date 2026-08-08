@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miluzza · Painel administrativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page">
+<aside class="sidebar">
+  <div class="side-logo"><img src="../assets/images/logo-transparent.png" alt="Miluzza"></div>
+  <nav>
+    <a class="active" href="#produtos">Produtos</a>
+    <a href="../index.html" target="_blank">Ver loja ↗</a>
+  </nav>
+  <button id="logoutBtn" class="logout">Sair</button>
+</aside>
+
+<main class="admin-main">
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow dark">PAINEL MILUZZA</p>
+      <h1>Seus <em>produtos.</em></h1>
+    </div>
+    <button id="newProductBtn" class="admin-btn">+ Novo produto</button>
+  </header>
+
+  <section class="stats">
+    <div><span>Produtos cadastrados</span><strong id="totalProducts">—</strong></div>
+    <div><span>Produtos ativos</span><strong id="activeProducts">—</strong></div>
+    <div><span>Destaques</span><strong id="featuredProducts">—</strong></div>
+  </section>
+
+  <section class="products-panel" id="produtos">
+    <div class="panel-top">
+      <div>
+        <h2>Catálogo</h2>
+        <p>Gerencie as peças que aparecem na loja.</p>
+      </div>
+      <input id="adminSearch" type="search" placeholder="Buscar produto...">
+    </div>
+    <div id="productList" class="admin-product-list"></div>
+  </section>
+</main>
+
+<div class="modal" id="productModal">
+  <div class="modal-card">
+    <button class="modal-close" id="closeModal">×</button>
+    <p class="eyebrow dark">CADASTRAR / EDITAR</p>
+    <h2 id="modalTitle">Novo <em>produto</em></h2>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+      <div class="form-grid">
+        <label>Nome do produto<input id="name" required placeholder="Ex.: Colar Riviera"></label>
+        <label>Categoria
+          <select id="category" required>
+            <option value="">Selecione</option>
+            <option>Colares</option><option>Brincos</option><option>Anéis</option><option>Pulseiras</option>
+          </select>
+        </label>
+        <label>Preço<input id="price" required placeholder="R$ 149,90"></label>
+        <label>
+  Imagem do produto
+  <input
+    id="image"
+    required
+    readonly
+    placeholder="A URL será preenchida automaticamente"
+  >
+</label>
+      </div>
+
+<div class="cloudinary-box">
+  <div>
+    <strong>Imagem do produto</strong>
+    <small>
+      Escolha uma foto do produto. Ela será enviada automaticamente
+      para o Cloudinary.
+    </small>
+  </div>
+
+  <input
+    type="file"
+    id="cloudinaryFile"
+    accept="image/jpeg,image/png,image/webp"
+    hidden
+  >
+
+  <button
+    type="button"
+    id="cloudinaryBtn"
+    class="secondary-btn">
+    Escolher foto
+  </button>
+
+  <p id="cloudinaryMessage"></p>
+
+  <div id="imagePreview" style="display:none;">
+    <img
+      id="imagePreviewImg"
+      alt="Pré-visualização da imagem"
+      style="max-width:180px;border-radius:12px;margin-top:12px;">
+  </div>
+</div>
+
+      <label>Descrição<textarea id="description" rows="4" placeholder="Descreva a peça..."></textarea></label>
+
+      <div class="check-grid">
+        <label class="check"><input type="checkbox" id="featured"> Produto em destaque</label>
+        <label class="check"><input type="checkbox" id="newProduct"> Produto novo</label>
+        <label class="check"><input type="checkbox" id="active" checked> Produto ativo na loja</label>
+      </div>
+
+      <p class="form-message" id="formMessage"></p>
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="cancelBtn">Cancelar</button>
+        <button type="submit" class="admin-btn">Salvar produto <span>→</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script type="module" src="admin.js?v=3"></script>
+</body>
+</html>

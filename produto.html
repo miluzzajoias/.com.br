@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Produto | Miluzza Joias</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="produto.css">
+
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+<a href="index.html" class="brand">
+    <img src="assets/images/logo.png" alt="Miluzza Joias">
+</a>
+
+<a href="index.html" class="whatsapp-mini">
+    ← Voltar
+</a>
+
+</header>
+
+
+
+<main class="products-section">
+
+
+<div id="productDetail"></div>
+
+
+</main>
+
+
+
+<script type="module">
+
+
+import { initializeApp } 
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import { 
+getFirestore,
+doc,
+getDoc
+} 
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyAwgumX1YaWrz31PQwneSAXsoxYXtmKr00",
+
+authDomain: "miluzza-joias-ca518.firebaseapp.com",
+
+projectId: "miluzza-joias-ca518",
+
+storageBucket: "miluzza-joias-ca518.firebasestorage.app",
+
+messagingSenderId: "695140285519",
+
+appId: "1:695140285519:web:718d322ccb9883580b7e3a"
+
+};
+
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+
+const id = new URLSearchParams(window.location.search).get("id");
+
+
+const container = document.getElementById("productDetail");
+
+
+
+async function carregarProduto(){
+
+
+if(!id){
+
+container.innerHTML = "Produto não encontrado.";
+
+return;
+
+}
+
+
+
+const referencia = doc(db,"produtos",id);
+
+
+const resultado = await getDoc(referencia);
+
+
+
+if(!resultado.exists()){
+
+container.innerHTML = "Produto não encontrado.";
+
+return;
+
+}
+
+
+
+const produto = resultado.data();
+
+
+
+container.innerHTML = `
+
+
+<div class="product-view">
+
+
+<div class="product-image">
+
+<img 
+src="${produto.imagem}" 
+alt="${produto.nome}">
+
+</div>
+
+
+
+<div class="product-info">
+
+
+<p class="product-category">
+${produto.categoria || ""}
+</p>
+
+
+<h1 class="product-name">
+${produto.nome}
+</h1>
+
+
+<div class="product-price">
+${produto.preco}
+</div>
+
+
+<p class="product-description">
+${produto.descricao || "Peça exclusiva Miluzza Joias."}
+</p>
+
+
+<a 
+class="btn btn-gold"
+href="https://wa.me/5563985003751"
+target="_blank">
+
+Tenho interesse
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+}
+
+
+
+carregarProduto();
+
+
+</script>
+
+
+
+</body>
+
+</html>
