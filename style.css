@@ -539,3 +539,38 @@ button{font:inherit}
 
 }
 
+
+/* ===== AJUSTE FINAL DAS CATEGORIAS ===== */
+
+.category-grid{
+    grid-template-columns:repeat(4,1fr) !important;
+}
+
+.category-main{
+    grid-column:auto !important;
+    grid-row:auto !important;
+    min-height:250px !important;
+    background:#eee8e3 !important;
+    color:var(--ink) !important;
+}
+
+.category-main span,
+.category-main small{
+    color:var(--muted) !important;
+}
+
+.category-main i{
+    color:var(--wine) !important;
+}
+
+@media(max-width:700px){
+    .category-grid{
+        grid-template-columns:repeat(2,1fr) !important;
+        gap:8px !important;
+    }
+
+    .category-main{
+        grid-column:auto !important;
+        min-height:190px !important;
+    }
+}
