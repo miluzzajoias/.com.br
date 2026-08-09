@@ -1,99 +1,167 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
 
-```
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Miluzza · Acesso administrativo</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Miluzza · Acesso administrativo</title>
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
-    rel="stylesheet">
 
-<link rel="stylesheet" href="admin.css">
-```
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
 
 </head>
 
+
 <body class="login-page">
 
-```
-<main class="login-shell">
 
-    <div class="login-brand">
-    <span class="login-logo">MILUZZA</span>
-    <small>JOIAS</small>
-</div>
+    <main class="login-shell">
 
-    <section class="login-card">
 
-        <p class="eyebrow dark">ÁREA RESTRITA</p>
+        <!-- LOGO -->
 
-        <h1>
-            Bem-vinda à<br>
-            <em>Miluzza.</em>
-        </h1>
+        <div class="login-brand">
 
-        <p class="login-copy">
-            Acesse o painel administrativo para gerenciar
-            os produtos da sua loja.
-        </p>
+            <img
+                src="../assets/images/logo-transparent.png"
+                alt="Miluzza Joias"
+            >
 
-        <form id="loginForm">
+        </div>
 
-            <label>
-                E-mail
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="seu@email.com"
-                    autocomplete="email"
-                    required>
-            </label>
 
-            <label>
-                Senha
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Digite sua senha"
-                    autocomplete="current-password"
-                    required>
-            </label>
 
-            <button
-                type="submit"
-                class="admin-btn">
-                Entrar
-                <span>→</span>
-            </button>
+        <!-- LOGIN -->
 
-            <p
-                id="message"
-                class="form-message">
+        <section class="login-card">
+
+
+            <p class="eyebrow dark">
+                ÁREA RESTRITA
             </p>
 
-        </form>
 
-    </section>
+            <h1>
 
-    <a
-        href="../index.html"
-        class="back-store">
-        ← Voltar para a loja
-    </a>
+                Bem-vinda à<br>
 
-</main>
+                <em>Miluzza.</em>
 
-<script type="module" src="admin.js"></script>
-```
+            </h1>
+
+
+            <p class="login-copy">
+
+                Acesse o painel administrativo
+                para gerenciar os produtos da sua loja.
+
+            </p>
+
+
+
+            <form id="loginForm">
+
+
+                <label>
+
+                    E-mail
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seu@email.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </label>
+
+
+
+                <label>
+
+                    Senha
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </label>
+
+
+
+                <button
+                    type="submit"
+                    class="admin-btn"
+                >
+
+                    Entrar
+
+                    <span>→</span>
+
+                </button>
+
+
+
+                <p
+                    id="message"
+                    class="form-message"
+                ></p>
+
+
+            </form>
+
+
+        </section>
+
+
+
+        <!-- VOLTAR -->
+
+        <a
+            href="../index.html"
+            class="back-store"
+        >
+            ← Voltar para a loja
+        </a>
+
+
+    </main>
+
+
+
+    <script
+        type="module"
+        src="admin.js"
+    ></script>
+
 
 </body>
 

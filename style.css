@@ -539,46 +539,62 @@ button{font:inherit}
 
 }
 
-/* ===== MILUZZA — CATEGORIAS ===== */
+
+/* ===== CATEGORIAS — AJUSTE DEFINITIVO ===== */
 
 .category-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
 
-.category-card,
-.category-main {
-    grid-column: auto !important;
-    grid-row: auto !important;
+.category-card {
     min-height: 250px;
+    grid-column: auto;
+    grid-row: auto;
+    background: #eee8e3;
+    color: var(--ink);
+}
+
+.category-card:nth-child(2) {
+    background: #eee0e5;
+}
+
+.category-card:nth-child(3) {
+    background: #e9e2dc;
+}
+
+.category-card:nth-child(4) {
+    background: #e5d9df;
 }
 
 .category-main {
-    background: #eee8e3 !important;
-    color: var(--ink) !important;
+    background: #eee8e3;
+    color: var(--ink);
 }
 
 .category-main span,
 .category-main small {
-    color: var(--muted) !important;
+    color: var(--muted);
 }
 
 .category-main i {
-    color: var(--wine) !important;
+    color: var(--wine);
 }
 
 @media (max-width: 700px) {
 
     .category-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
 
-    .category-card,
-    .category-main {
-        grid-column: auto !important;
+    .category-card {
         min-height: 190px;
     }
 
+    .category-main {
+        min-height: 190px;
+        grid-column: auto;
+    }
 }

@@ -1,128 +1,548 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miluzza · Painel administrativo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="admin.css">
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Miluzza · Administração</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+
 </head>
+
+
 <body class="admin-page">
-<aside class="sidebar">
-  <div class="side-logo"><img src="../assets/images/logo-transparent.png" alt="Miluzza"></div>
-  <nav>
-    <a class="active" href="#produtos">Produtos</a>
-    <a href="../index.html" target="_blank">Ver loja ↗</a>
-  </nav>
-  <button id="logoutBtn" class="logout">Sair</button>
-</aside>
 
-<main class="admin-main">
-  <header class="admin-header">
-    <div>
-      <p class="eyebrow dark">PAINEL MILUZZA</p>
-      <h1>Seus <em>produtos.</em></h1>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="side-logo">
+
+            <img
+                src="../assets/images/logo-transparent.png"
+                alt="Miluzza Joias"
+            >
+
+        </div>
+
+
+        <nav>
+
+            <a
+                href="index.html"
+                class="active"
+            >
+                Produtos
+            </a>
+
+            <a href="../index.html">
+                Ver loja
+            </a>
+
+        </nav>
+
+
+        <button
+            type="button"
+            class="logout"
+            id="logoutBtn"
+        >
+            Sair
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="admin-main">
+
+
+        <!-- HEADER -->
+
+        <header class="admin-header">
+
+            <div>
+
+                <p class="eyebrow dark">
+                    PAINEL ADMINISTRATIVO
+                </p>
+
+                <h1>
+                    Sua <em>coleção.</em>
+                </h1>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-btn"
+                id="newProductBtn"
+            >
+                Novo produto
+                <span>+</span>
+            </button>
+
+        </header>
+
+
+
+        <!-- =================================================
+             ESTATÍSTICAS
+        ================================================== -->
+
+        <section class="stats">
+
+            <div>
+
+                <span>
+                    Total de produtos
+                </span>
+
+                <strong id="totalProducts">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Produtos ativos
+                </span>
+
+                <strong id="activeProducts">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Em destaque
+                </span>
+
+                <strong id="featuredProducts">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PRODUTOS
+        ================================================== -->
+
+        <section class="products-panel">
+
+
+            <div class="panel-top">
+
+                <div>
+
+                    <h2>
+                        Produtos
+                    </h2>
+
+                    <p>
+                        Gerencie as peças exibidas na loja.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="search"
+                    id="adminSearch"
+                    placeholder="Buscar produto..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+
+            <div
+                class="admin-product-list"
+                id="productList"
+            >
+
+                <div class="empty-state">
+
+                    <strong>
+                        Carregando...
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL DE PRODUTO
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="productModal"
+    >
+
+        <div class="modal-card">
+
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeModal"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <h2 id="modalTitle">
+                Novo produto
+            </h2>
+
+
+            <form id="productForm">
+
+
+                <!-- ID OCULTO -->
+
+                <input
+                    type="hidden"
+                    id="productId"
+                >
+
+
+
+                <!-- DADOS DO PRODUTO -->
+
+                <div class="form-grid">
+
+
+                    <label>
+
+                        Nome do produto
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Ex.: Colar Aurora"
+                            required
+                        >
+
+                    </label>
+
+
+
+                    <label>
+
+                        Categoria
+
+                        <select
+                            id="category"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="Colares">
+                                Colares
+                            </option>
+
+                            <option value="Brincos">
+                                Brincos
+                            </option>
+
+                            <option value="Anéis">
+                                Anéis
+                            </option>
+
+                            <option value="Pulseiras">
+                                Pulseiras
+                            </option>
+
+                            <option value="Conjuntos">
+                                Conjuntos
+                            </option>
+
+                            <option value="Outros">
+                                Outros
+                            </option>
+
+                        </select>
+
+                    </label>
+
+
+
+                    <label>
+
+                        Preço
+
+                        <input
+                            type="number"
+                            id="price"
+                            min="0"
+                            step="0.01"
+                            placeholder="129.90"
+                            required
+                        >
+
+                    </label>
+
+
+
+                    <label>
+
+                        Imagem
+
+                        <input
+                            type="url"
+                            id="image"
+                            placeholder="A imagem aparecerá aqui após o upload"
+                            autocomplete="off"
+                        >
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CLOUDINARY
+                ================================================== -->
+
+                <div class="cloudinary-box">
+
+                    <div>
+
+                        <strong>
+                            Foto do produto
+                        </strong>
+
+                        <small>
+                            Escolha uma imagem JPG, PNG ou WEBP.
+                            Ela será enviada para o Cloudinary.
+                        </small>
+
+                        <p id="cloudinaryMessage"></p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cloudinaryBtn"
+                    >
+                        Escolher foto
+                    </button>
+
+
+                    <input
+                        type="file"
+                        id="cloudinaryFile"
+                        accept="image/jpeg,image/png,image/webp"
+                        hidden
+                    >
+
+                </div>
+
+
+
+                <!-- PREVIEW -->
+
+                <div
+                    id="imagePreview"
+                    style="
+                        display:none;
+                        margin-bottom:20px;
+                    "
+                >
+
+                    <img
+                        id="imagePreviewImg"
+                        src=""
+                        alt="Pré-visualização"
+                        style="
+                            width:120px;
+                            height:120px;
+                            object-fit:cover;
+                            border-radius:12px;
+                            display:block;
+                        "
+                    >
+
+                </div>
+
+
+
+                <!-- DESCRIÇÃO -->
+
+                <label>
+
+                    Descrição
+
+                    <textarea
+                        id="description"
+                        rows="4"
+                        placeholder="Descreva a peça..."
+                    ></textarea>
+
+                </label>
+
+
+
+                <!-- CHECKBOXES -->
+
+                <div class="check-grid">
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            id="featured"
+                        >
+
+                        Produto em destaque
+
+                    </label>
+
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            id="newProduct"
+                        >
+
+                        Produto novo
+
+                    </label>
+
+
+
+                    <label class="check">
+
+                        <input
+                            type="checkbox"
+                            id="active"
+                            checked
+                        >
+
+                        Produto ativo na loja
+
+                    </label>
+
+
+                </div>
+
+
+
+                <!-- MENSAGEM -->
+
+                <p
+                    class="form-message"
+                    id="formMessage"
+                ></p>
+
+
+
+                <!-- AÇÕES -->
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelBtn"
+                    >
+                        Cancelar
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="admin-btn"
+                    >
+                        Salvar produto
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
     </div>
-    <button id="newProductBtn" class="admin-btn">+ Novo produto</button>
-  </header>
 
-  <section class="stats">
-    <div><span>Produtos cadastrados</span><strong id="totalProducts">—</strong></div>
-    <div><span>Produtos ativos</span><strong id="activeProducts">—</strong></div>
-    <div><span>Destaques</span><strong id="featuredProducts">—</strong></div>
-  </section>
 
-  <section class="products-panel" id="produtos">
-    <div class="panel-top">
-      <div>
-        <h2>Catálogo</h2>
-        <p>Gerencie as peças que aparecem na loja.</p>
-      </div>
-      <input id="adminSearch" type="search" placeholder="Buscar produto...">
-    </div>
-    <div id="productList" class="admin-product-list"></div>
-  </section>
-</main>
 
-<div class="modal" id="productModal">
-  <div class="modal-card">
-    <button class="modal-close" id="closeModal">×</button>
-    <p class="eyebrow dark">CADASTRAR / EDITAR</p>
-    <h2 id="modalTitle">Novo <em>produto</em></h2>
-    <form id="productForm">
-      <input type="hidden" id="productId">
-      <div class="form-grid">
-        <label>Nome do produto<input id="name" required placeholder="Ex.: Colar Riviera"></label>
-        <label>Categoria
-          <select id="category" required>
-            <option value="">Selecione</option>
-            <option>Colares</option><option>Brincos</option><option>Anéis</option><option>Pulseiras</option>
-          </select>
-        </label>
-        <label>Preço<input id="price" required placeholder="R$ 149,90"></label>
-        <label>
-  Imagem do produto
-  <input
-    id="image"
-    required
-    readonly
-    placeholder="A URL será preenchida automaticamente"
-  >
-</label>
-      </div>
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-<div class="cloudinary-box">
-  <div>
-    <strong>Imagem do produto</strong>
-    <small>
-      Escolha uma foto do produto. Ela será enviada automaticamente
-      para o Cloudinary.
-    </small>
-  </div>
+    <script
+        type="module"
+        src="admin.js"
+    ></script>
 
-  <input
-    type="file"
-    id="cloudinaryFile"
-    accept="image/jpeg,image/png,image/webp"
-    hidden
-  >
 
-  <button
-    type="button"
-    id="cloudinaryBtn"
-    class="secondary-btn">
-    Escolher foto
-  </button>
-
-  <p id="cloudinaryMessage"></p>
-
-  <div id="imagePreview" style="display:none;">
-    <img
-      id="imagePreviewImg"
-      alt="Pré-visualização da imagem"
-      style="max-width:180px;border-radius:12px;margin-top:12px;">
-  </div>
-</div>
-
-      <label>Descrição<textarea id="description" rows="4" placeholder="Descreva a peça..."></textarea></label>
-
-      <div class="check-grid">
-        <label class="check"><input type="checkbox" id="featured"> Produto em destaque</label>
-        <label class="check"><input type="checkbox" id="newProduct"> Produto novo</label>
-        <label class="check"><input type="checkbox" id="active" checked> Produto ativo na loja</label>
-      </div>
-
-      <p class="form-message" id="formMessage"></p>
-      <div class="modal-actions">
-        <button type="button" class="secondary-btn" id="cancelBtn">Cancelar</button>
-        <button type="submit" class="admin-btn">Salvar produto <span>→</span></button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script type="module" src="admin.js?v=3"></script>
 </body>
+
 </html>
